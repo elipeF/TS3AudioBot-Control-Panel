@@ -1,0 +1,116 @@
+{
+  "remove-bot-title": "Usuń bota",
+  "user-create-title": "Tworzenie użytkownika",
+  "bot-create-title": "Tworzenie bota",
+  "bot-settings-title": "Ustawienia bota",
+  "add-userid": "Dodaj uniq",
+  "add-groupid": "Dodaj grupe",
+  "start-all": "Uruchom wszystkie",
+  "stop-all": "Zatrzymaj wszystkie",
+  "users": "Użytkownicy",
+  "groups": "Grupy",
+  "add": "Dodaj",
+  "delete": "usuń",
+  "pass-change": "Zmień hasło",
+  "username": "Nazwa użytkownika",
+  "password": "Hasło",
+  "hello": "Witaj",
+  "submit": "Zatwierdź",
+  "cancel": "Anuluj",
+  "sign-in": "Zaloguj się",
+  "other-bots": "Pozostałe boty",
+  "my-bots": "Moje boty",
+  "bot-settings": {
+    "address": "Adres serwera",
+    "name": "Nazwa bota",
+    "channel": "Kanał bota",
+    "language": "Język bota",
+    "owner": "Właściciel bota",
+    "count": "Ilość botów"
+  },
+  "user-remove-modal": {
+    "title": "Usuwanie użytkownika",
+    "question": "Co zrobić z botami?",
+    "transfer": "przenieś",
+    "remove": "usuń",
+    "options": {
+      "remove": "Boty zostaną usunięte",
+      "transfer": "Wybierz gdzie przenieść boty",
+      "default": "Możesz bezpiecznie usunąć użytkownika",
+      "noaction": "Niewybranie opcji spowoduje pozostawienie botów nieprzypisanych"
+    }
+  },
+  "navigation": {
+    "dashboard": "Panel",
+    "createbot": "Utwórz bota",
+    "users": "Użytkownicy"
+  },
+  "bot": {
+    "remove": "Usuń bota",
+    "transfer": "Zmień właściciela bota",
+    "settings": "Ustawienia bota",
+    "power": "Włącz / Wyłącz bota",
+    "status": "Status",
+    "name": "Nazwa",
+    "server": "Serwer",
+    "owner": "Właściciel"
+  },
+  "table": {
+    "body": {
+      "emptyDataSourceMessage": "Brak danych do wyświetlenia",
+      "addTooltip": "Dodaj",
+      "deleteTooltip": "Usuń",
+      "editTooltip": "Edytuj",
+      "filterRow": {
+        "filterTooltip": "Filtruj"
+      },
+      "editRow": {
+        "deleteText": "Czy na pewno chcesz usunąć ten rząd?",
+        "cancelTooltip": "Anuluj",
+        "saveTooltip": "Zatwierdź"
+      }
+    },
+    "grouping": {
+      "placeholder": "Przeciągaj nagłówki.."
+    },
+    "header": {
+      "actions": "Akcje"
+    },
+    "pagination": {
+      "labelDisplayedRows": "od {from} do {to} z {count} ogółem",
+      "labelRowsSelect": "wierszy",
+      "labelRowsPerPage": "Wierszy na stronie:",
+      "firstAriaLabel": "Pierwsza strona",
+      "firstTooltip": "Pierwsza strona",
+      "previousAriaLabel": "Poprzednia strona",
+      "previousTooltip": "Poprzednia strona",
+      "nextAriaLabel": "Następna strona",
+      "nextTooltip": "Następna strona",
+      "lastAriaLabel": "Ostatnia strona",
+      "lastTooltip": "Ostatnia strona"
+    },
+    "toolbar": {
+      "addRemoveColumns": "Dodaj lub usuń kolumny",
+      "nRowsSelected": "{0} rzędów zaznaczonych",
+      "showColumnsTitle": "Pokaż tytuły kolumn",
+      "showColumnsAriaLabel": "Pokaż tytuły kolumn",
+      "exportTitle": "Export",
+      "exportAriaLabel": "Export",
+      "exportName": "Export do .CSV",
+      "searchTooltip": "Szukaj",
+      "searchPlaceholder": "Szukaj"
+    }
+  },
+  "responses": {
+    "CREATE_BOT_SUCCESS": "Bot utworzony",
+    "ADD_BOT_RIGHTS_SUCCESS": "Dodano nowe uprawnienie",
+    "DEL_BOT_RIGHTS_SUCCESS": "Usunięto uprawnienie",
+    "START_BOT_SUCCESS": "Wystartowano bota",
+    "STOP_BOT_SUCCESS": "Zatrzymano bota",
+    "EDIT_BOT_SUCCESS": "Zapisano ustawienia",
+    "TRANSFER_BOT_SUCCESS": "Przeniesiono bota",
+    "REMOVE_BOT_SUCCESS": "Usunięto bota",
+    "CREATE_USER_SUCCESS": "Utworzono użytkownika",
+    "REMOVE_USER_SUCCESS": "Usunięto użytkownika"
+  }
+}
