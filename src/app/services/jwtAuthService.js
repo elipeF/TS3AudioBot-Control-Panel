@@ -19,7 +19,6 @@ class JwtAuthService {
           displayName: data.name,
           role: data.admin ? "admin" : "user",
         });
-        this.setSession(window.localStorage.getItem("jwt_token"));
         return {
           userId: data.id,
           displayName: data.name,
@@ -58,6 +57,7 @@ class JwtAuthService {
   // Set token to all http request header, so you don't need to attach everytime
   setSession = (token) => {
     if (token) {
+      instance.defaults.headers.common["Authorization"] = "bearer " + token;
       window.localStorage.setItem("jwt_token", token);
     } else {
       window.localStorage.removeItem("jwt_token");
