@@ -66,13 +66,12 @@ class OtherBotsTable extends Component {
   }
 
   startAll() {
-    const bots = this.state.data.filter((e) => e.status === 0);
-
+    const bots = this.state.data.filter((e) => e.status === 0).map((e) => e.id);
     this.props.onStartBots(bots);
   }
 
   stopAll() {
-    const bots = this.state.data.filter((e) => e.status !== 0);
+    const bots = this.state.data.filter((e) => e.status !== 0).map((e) => e.id);
     this.props.onStopBots(bots);
   }
 

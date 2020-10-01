@@ -59,7 +59,7 @@ export const startBotAndReloadBot = (id) => (dispatch) => {
     type: START_BOT_START,
   });
   instance
-    .get(`http://${window.location.hostname}:8081/bots/` + id + "/start")
+    .post(`http://${window.location.hostname}:8081/bots/start`, { ids: [id] })
     .then((res) => {
       dispatch({
         type: START_BOT_SUCCESS,
@@ -90,7 +90,7 @@ export const stopBotAndReloadBot = (id) => (dispatch) => {
     type: STOP_BOT_START,
   });
   instance
-    .get(`http://${window.location.hostname}:8081/bots/` + id + "/stop")
+    .post(`http://${window.location.hostname}:8081/bots/stop`, { ids: [id] })
     .then((res) => {
       dispatch({
         type: STOP_BOT_SUCCESS,
@@ -119,7 +119,7 @@ export const startBotAndReloadBots = (id) => (dispatch) => {
     type: START_BOT_START,
   });
   instance
-    .get(`http://${window.location.hostname}:8081/bots/` + id + "/start")
+    .post(`http://${window.location.hostname}:8081/bots/start`, { ids: [id] })
     .then((res) => {
       dispatch({
         type: START_BOT_SUCCESS,
@@ -149,62 +149,60 @@ export const startBotsAndReloadBots = (ids) => (dispatch) => {
   dispatch({
     type: START_BOT_START,
   });
-  for (const { id } of ids) {
-    instance
-      .get(`http://${window.location.hostname}:8081/bots/` + id + "/start")
-      .then((res) => {
-        dispatch({
-          type: START_BOT_SUCCESS,
-        });
-      })
-      .catch((e) => {
-        dispatch(
-          newNotification({
-            type: "error",
-            message: e.response?.data.message
-              ? e.response?.data.message
-              : e.message,
-          })
-        );
-        dispatch({
-          type: START_BOT_FAIL,
-          payload: e,
-        });
+  instance
+    .post(`http://${window.location.hostname}:8081/bots/start`, { ids })
+    .then((res) => {
+      dispatch({
+        type: START_BOT_SUCCESS,
       });
-  }
-  dispatch(newNotification({ type: "success", message: START_BOT_SUCCESS }));
-  dispatch(getBotsList());
+      dispatch(
+        newNotification({ type: "success", message: START_BOT_SUCCESS })
+      );
+      dispatch(getBotsList());
+    })
+    .catch((e) => {
+      dispatch(
+        newNotification({
+          type: "error",
+          message: e.response?.data.message
+            ? e.response?.data.message
+            : e.message,
+        })
+      );
+      dispatch({
+        type: START_BOT_FAIL,
+        payload: e,
+      });
+    });
 };
 
 export const stopBotsAndReloadBots = (ids) => (dispatch) => {
   dispatch({
     type: STOP_BOT_START,
   });
-  for (const { id } of ids) {
-    instance
-      .get(`http://${window.location.hostname}:8081/bots/` + id + "/stop")
-      .then((res) => {
-        dispatch({
-          type: STOP_BOT_SUCCESS,
-        });
-      })
-      .catch((e) => {
-        dispatch(
-          newNotification({
-            type: "error",
-            message: e.response?.data.message
-              ? e.response?.data.message
-              : e.message,
-          })
-        );
-        dispatch({
-          type: STOP_BOT_FAIL,
-          payload: e,
-        });
+  instance
+    .post(`http://${window.location.hostname}:8081/bots/stop`, { ids })
+    .then((res) => {
+      dispatch({
+        type: STOP_BOT_SUCCESS,
       });
-  }
-  dispatch(newNotification({ type: "success", message: STOP_BOT_SUCCESS }));
-  dispatch(getBotsList());
+      dispatch(newNotification({ type: "success", message: STOP_BOT_SUCCESS }));
+      dispatch(getBotsList());
+    })
+    .catch((e) => {
+      dispatch(
+        newNotification({
+          type: "error",
+          message: e.response?.data.message
+            ? e.response?.data.message
+            : e.message,
+        })
+      );
+      dispatch({
+        type: STOP_BOT_FAIL,
+        payload: e,
+      });
+    });
 };
 
 export const stopBotAndReloadBots = (id) => (dispatch) => {
@@ -212,7 +210,7 @@ export const stopBotAndReloadBots = (id) => (dispatch) => {
     type: STOP_BOT_START,
   });
   instance
-    .get(`http://${window.location.hostname}:8081/bots/` + id + "/stop")
+    .post(`http://${window.location.hostname}:8081/bots/stop`, { ids: [id] })
     .then((res) => {
       dispatch({
         type: STOP_BOT_SUCCESS,

@@ -56,13 +56,13 @@ const UserBotsTable = (props) => {
   let adminActions = [];
 
   const startAll = () => {
-    const bots = props.data.filter((e) => e.status === 0);
+    const bots = props.data.filter((e) => e.status === 0).map((e) => e.id);
 
     props.onStartBots(bots);
   };
 
   const stopAll = () => {
-    const bots = props.data.filter((e) => e.status !== 0);
+    const bots = props.data.filter((e) => e.status !== 0).map((e) => e.id);
     props.onStopBots(bots);
   };
 
