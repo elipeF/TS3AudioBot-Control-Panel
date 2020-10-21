@@ -61,6 +61,7 @@ class JwtAuthService {
       window.localStorage.setItem("jwt_token", token);
     } else {
       window.localStorage.removeItem("jwt_token");
+      delete instance.defaults.headers.common["Authorization"];
     }
   };
 
