@@ -7,6 +7,7 @@ import { getBotsList } from "app/redux/actions/BotsActions";
 import UserBotsTable from "./UserBotsTable";
 import OtherBotsTable from "./OtherBotsTable";
 import Spinner from "../../ui/Spinner";
+import StatsCard from "./StatsCard";
 
 class Dashboard1 extends Component {
   state = {
@@ -43,6 +44,7 @@ class Dashboard1 extends Component {
     return (
       <div className="analytics pt-25 m-sm-30 mt--18">
         <Grid container spacing={3}>
+          <StatsCard data={this.props.bots} />
           {this.props.user.role === "admin" ? (
             <Grid item lg={12} md={12} sm={12} xs={12}>
               <Card elevation={3} className="pt-5 mb-6 px-5">
@@ -56,7 +58,7 @@ class Dashboard1 extends Component {
             </Card>
           </Grid>
         </Grid>
-      </div>
+      </div >
     );
   }
 }

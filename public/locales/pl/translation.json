@@ -20,6 +20,10 @@
   "sign-in": "Zaloguj się",
   "other-bots": "Pozostałe boty",
   "my-bots": "Moje boty",
+  "bot-stats": {
+    "online": "Aktywne boty",
+    "offline": "Boty offline"
+  },
   "bot-settings": {
     "address": "Adres serwera",
     "name": "Nazwa bota",
