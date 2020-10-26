@@ -10,7 +10,7 @@ export const getBotsList = () => (dispatch) => {
     type: GET_BOTS_LIST_START,
   });
   instance
-    .get(`http://${window.location.hostname}:8081/bots/`)
+    .get(`/api/bots/`)
     .then((res) => {
       dispatch({
         type: GET_BOTS_LIST_SUCCESS,

@@ -10,7 +10,7 @@ export const getUsersList = () => (dispatch) => {
     type: GET_USERS_START,
   });
   instance
-    .get(`http://${window.location.hostname}:8081/users/`)
+    .get(`/api/users/`)
     .then((res) => {
       dispatch({
         type: GET_USERS_SUCCESS,

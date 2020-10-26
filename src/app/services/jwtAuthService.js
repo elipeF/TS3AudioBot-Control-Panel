@@ -3,14 +3,14 @@ import instance from "./../../axios";
 class JwtAuthService {
   loginWithUsernameAndPassword = (username, password) => {
     return instance
-      .post(`http://${window.location.hostname}:8081/auth/login`, {
+      .post(`/api/auth/login`, {
         name: username,
         password,
       })
       .then(({ data }) => {
         this.setSession(data.access_token);
         return instance.get(
-          `http://${window.location.hostname}:8081/users/profile`
+          `/api/users/profile`
         );
       })
       .then(({ data }) => {
@@ -32,7 +32,7 @@ class JwtAuthService {
   loginWithToken = () => {
     if (window.localStorage.getItem("jwt_token")) {
       return instance
-        .get(`http://${window.location.hostname}:8081/users/profile`)
+        .get(`/api/users/profile`)
         .then(({ data }) => {
           this.setUser({
             userId: data.id,

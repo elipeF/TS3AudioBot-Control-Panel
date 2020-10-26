@@ -31,7 +31,7 @@ export const getBot = (id) => (dispatch) => {
     type: GET_BOT_START,
   });
   instance
-    .get(`http://${window.location.hostname}:8081/bots/` + id)
+    .get(`/api/bots/` + id)
     .then((res) => {
       dispatch({
         type: GET_BOT_SUCCESS,
@@ -59,7 +59,7 @@ export const startBotAndReloadBot = (id) => (dispatch) => {
     type: START_BOT_START,
   });
   instance
-    .post(`http://${window.location.hostname}:8081/bots/start`, { ids: [id] })
+    .post(`/api/bots/start`, { ids: [id] })
     .then((res) => {
       dispatch({
         type: START_BOT_SUCCESS,
@@ -90,7 +90,7 @@ export const stopBotAndReloadBot = (id) => (dispatch) => {
     type: STOP_BOT_START,
   });
   instance
-    .post(`http://${window.location.hostname}:8081/bots/stop`, { ids: [id] })
+    .post(`/api/bots/stop`, { ids: [id] })
     .then((res) => {
       dispatch({
         type: STOP_BOT_SUCCESS,
@@ -119,7 +119,7 @@ export const startBotAndReloadBots = (id) => (dispatch) => {
     type: START_BOT_START,
   });
   instance
-    .post(`http://${window.location.hostname}:8081/bots/start`, { ids: [id] })
+    .post(`/api/bots/start`, { ids: [id] })
     .then((res) => {
       dispatch({
         type: START_BOT_SUCCESS,
@@ -150,7 +150,7 @@ export const startBotsAndReloadBots = (ids) => (dispatch) => {
     type: START_BOT_START,
   });
   instance
-    .post(`http://${window.location.hostname}:8081/bots/start`, { ids })
+    .post(`/api/bots/start`, { ids })
     .then((res) => {
       dispatch({
         type: START_BOT_SUCCESS,
@@ -181,7 +181,7 @@ export const stopBotsAndReloadBots = (ids) => (dispatch) => {
     type: STOP_BOT_START,
   });
   instance
-    .post(`http://${window.location.hostname}:8081/bots/stop`, { ids })
+    .post(`/api/bots/stop`, { ids })
     .then((res) => {
       dispatch({
         type: STOP_BOT_SUCCESS,
@@ -210,7 +210,7 @@ export const stopBotAndReloadBots = (id) => (dispatch) => {
     type: STOP_BOT_START,
   });
   instance
-    .post(`http://${window.location.hostname}:8081/bots/stop`, { ids: [id] })
+    .post(`/api/bots/stop`, { ids: [id] })
     .then((res) => {
       dispatch({
         type: STOP_BOT_SUCCESS,
@@ -237,7 +237,7 @@ export const stopBotAndReloadBots = (id) => (dispatch) => {
 export const editBot = (id, data) => (dispatch) => {
   dispatch({ type: EDIT_BOT_START });
   instance
-    .patch(`http://${window.location.hostname}:8081/bots/` + id, {
+    .patch(`/api/bots/` + id, {
       ...data,
       channel: +data.channel,
     })
@@ -267,7 +267,7 @@ export const editBot = (id, data) => (dispatch) => {
 export const transferBot = (botId, targetId) => (dispatch) => {
   dispatch({ type: TRANSFER_BOT_START });
   instance
-    .patch(`http://${window.location.hostname}:8081/bots/` + botId + "/owner", {
+    .patch(`/api/bots/` + botId + "/owner", {
       id: targetId,
     })
     .then((res) => {
@@ -297,7 +297,7 @@ export const transferBot = (botId, targetId) => (dispatch) => {
 export const removeBot = (botId) => (dispatch) => {
   dispatch({ type: REMOVE_BOT_START });
   instance
-    .delete(`http://${window.location.hostname}:8081/bots/` + botId)
+    .delete(`/api/bots/` + botId)
     .then((res) => {
       dispatch({
         type: REMOVE_BOT_SUCCESS,

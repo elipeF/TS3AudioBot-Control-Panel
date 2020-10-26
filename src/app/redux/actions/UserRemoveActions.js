@@ -6,7 +6,7 @@ const REMOVE_USER_SUCCESS = "REMOVE_USER_SUCCESS";
 
 export const removeUser = (id) => (dispatch) => {
   instance
-    .delete(`http://${window.location.hostname}:8081/users/` + id)
+    .delete(`/api/users/` + id)
     .then((res) => {
       dispatch(getUsersList());
       dispatch(
@@ -30,7 +30,7 @@ export const removeUser = (id) => (dispatch) => {
 
 export const removeUserWithBotMigrate = (id, target) => (dispatch) => {
   instance
-    .patch(`http://${window.location.hostname}:8081/bots/` + id + "/migrate", {
+    .patch(`/api/bots/` + id + "/migrate", {
       id: target,
     })
     .then((res) => {
@@ -50,7 +50,7 @@ export const removeUserWithBotMigrate = (id, target) => (dispatch) => {
 
 export const removeUserWithBotDelete = (id, target) => (dispatch) => {
   instance
-    .delete(`http://${window.location.hostname}:8081/bots/` + id + "/all", {
+    .delete(`/api/bots/` + id + "/all", {
       id: target,
     })
     .then((res) => {

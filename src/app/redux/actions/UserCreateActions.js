@@ -12,7 +12,7 @@ export const createUser = (name, password) => (dispatch) => {
   });
 
   instance
-    .post(`http://${window.location.hostname}:8081/auth/register`, {
+    .post(`/api/auth/register`, {
       name,
       password,
     })

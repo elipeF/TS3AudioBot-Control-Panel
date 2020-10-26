@@ -19,7 +19,7 @@ export const getBotRights = (id) => (dispatch) => {
   });
 
   instance
-    .get(`http://${window.location.hostname}:8081/bots/` + id + "/rights")
+    .get(`/api/bots/` + id + "/rights")
     .then((res) => {
       const groupid = [];
       const useruid = [];
@@ -65,7 +65,7 @@ export const addBotRights = (id, data) => (dispatch) => {
   });
 
   instance
-    .post(`http://${window.location.hostname}:8081/bots/` + id + "/rights", {
+    .post(`/api/bots/` + id + "/rights", {
       [data.type]: data.value,
       type: data.admin ? "admin" : "user",
     })
@@ -99,7 +99,7 @@ export const delBotRights = (id, data) => (dispatch) => {
     type: DEL_BOT_RIGHTS_START,
   });
   instance
-    .delete(`http://${window.location.hostname}:8081/bots/` + id + "/rights", {
+    .delete(`/api/bots/` + id + "/rights", {
       data: { [data.type]: data.value, type: data.admin ? "admin" : "user" },
     })
     .then((res) => {

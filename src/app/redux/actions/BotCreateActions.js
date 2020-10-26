@@ -11,7 +11,7 @@ export const createBot = (data) => (dispatch) => {
   });
 
   instance
-    .post(`http://${window.location.hostname}:8081/bots/`, { ...data })
+    .post(`/api/bots/`, { ...data })
     .then((res) => {
       dispatch({
         type: CREATE_BOT_SUCCESS,
