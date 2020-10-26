@@ -43,13 +43,13 @@ $ ./addadmin.sh 80 PASS_HERE
 
 ### Upgrade from v1
 
-Example docker-compose: https://gist.githubusercontent.com/elipeF/b54b70c36c023e76ccc14c060b0f680c/raw/f77f9663b9d90cd53a8237d57a28589241f3ae3c/docker-compose.yml
+Example docker-compose: https://gist.githubusercontent.com/elipeF/b54b70c36c023e76ccc14c060b0f680c/raw/4ca8561c3eca881397aed1e772fdb60f661e5f94/docker-compose.yml
 
 ```sh
 $ cd abdash
 $ docker-compose down
 $ rm docker-compose.yml
-$ wget https://gist.githubusercontent.com/elipeF/b54b70c36c023e76ccc14c060b0f680c/raw/f77f9663b9d90cd53a8237d57a28589241f3ae3c/docker-compose.yml
+$ wget https://gist.githubusercontent.com/elipeF/b54b70c36c023e76ccc14c060b0f680c/raw/4ca8561c3eca881397aed1e772fdb60f661e5f94/docker-compose.yml
 !IMPORTANT: Edit docker-compose and change JWT_SECRET
 $ docker-compose pull
 $ docker-compose up -d
