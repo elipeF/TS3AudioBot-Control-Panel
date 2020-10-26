@@ -18,15 +18,15 @@ Feel free to pull request with translation :)
 - nestjs.com
 - [Matx](https://github.com/uilibrary/matx-react) - styling for dashboard
 
-### Installation
+### Installation v2
 
 TS3AudioBot Control Panel requires [Docker](https://docs.docker.com/engine/install/)
 
 ```sh
 $ mkdir abdash
 $ cd abdash
-$ wget https://github.com/elipeF/TS3AudioBot-Control-Panel/files/5282994/kickstart.tar.gz
-$ tar -xvf kickstart.tar.gz
+$ wget https://github.com/elipeF/TS3AudioBot-Control-Panel/releases/download/2.0.0/kickstartv2.tar.gz
+$ tar -xvf kickstartv2.tar.gz
 $ chown -R 9999:9999 $(pwd)/ts3ab
 !IMPORTANT: Edit docker-compose and change JWT_SECRET
 $ docker-compose up -d
@@ -35,14 +35,29 @@ $ docker-compose up -d
 Create admin user
 
 ```sh
-$ wget https://gist.githubusercontent.com/elipeF/670234003ef0d00e542f66f1b2625e27/raw/26ad3d415e5378dd65ee5ed50d4fca92003f5654/addadmin.sh
+$ wget https://gist.githubusercontent.com/elipeF/192e10d114696c6771b29466169cefd5/raw/64b960776c78a11aa30304ad71aa554d73429790/addadmin.sh
 $ chmod +x addadmin.sh
-$ ./addadmin.sh PASS_HERE
+!IMPORTANT: Default port 80, if you have changed, also change below
+$ ./addadmin.sh 80 PASS_HERE
 ```
+
+### Upgrade from v1
+
+Example docker-compose: https://gist.githubusercontent.com/elipeF/b54b70c36c023e76ccc14c060b0f680c/raw/f77f9663b9d90cd53a8237d57a28589241f3ae3c/docker-compose.yml
+
+```sh
+$ cd abdash
+$ docker-compose down
+$ rm docker-compose.yml
+$ wget https://gist.githubusercontent.com/elipeF/b54b70c36c023e76ccc14c060b0f680c/raw/f77f9663b9d90cd53a8237d57a28589241f3ae3c/docker-compose.yml
+!IMPORTANT: Edit docker-compose and change JWT_SECRET
+$ docker-compose up -d
+```
+
 
 ### Screenshots
 
-![Dashboard](https://i.imgur.com/98qFizh.png)
+![Dashboard](https://i.imgur.com/qRQufwL.png)
 ![Botsettings](https://i.imgur.com/Iuk1HbI.png)
 ![Botcreate](https://i.imgur.com/8xObKLQ.png)
 ![Usercreate](https://i.imgur.com/b0LjaLc.png)
