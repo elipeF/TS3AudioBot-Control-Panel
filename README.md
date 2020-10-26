@@ -51,6 +51,7 @@ $ docker-compose down
 $ rm docker-compose.yml
 $ wget https://gist.githubusercontent.com/elipeF/b54b70c36c023e76ccc14c060b0f680c/raw/f77f9663b9d90cd53a8237d57a28589241f3ae3c/docker-compose.yml
 !IMPORTANT: Edit docker-compose and change JWT_SECRET
+$ docker-compose pull
 $ docker-compose up -d
 ```
 
