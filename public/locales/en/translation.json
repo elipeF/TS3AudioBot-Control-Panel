@@ -30,6 +30,9 @@
     "channel": "Bot channel",
     "language": "Bot language",
     "owner": "Bot owner",
+    "volume": "Default bot volume after start",
+    "song": "Default song played after enter",
+    "commander": "Set commander after start",
     "count": "Number of bots"
   },
   "user-remove-modal": {

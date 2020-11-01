@@ -29,6 +29,9 @@
     "name": "Nazwa bota",
     "channel": "Kanał bota",
     "language": "Język bota",
+    "volume": "Domyślna głośność bota po starcie",
+    "song": "Domyślna piosenka odtwarzana po starcie",
+    "commander": "Commander po starcie",
     "owner": "Właściciel bota",
     "count": "Ilość botów"
   },

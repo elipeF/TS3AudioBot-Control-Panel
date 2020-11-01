@@ -4,7 +4,7 @@ import {
   TextValidator,
   SelectValidator,
 } from "react-material-ui-form-validator";
-import { MenuItem } from "@material-ui/core";
+import { FormControlLabel, MenuItem, Switch } from "@material-ui/core";
 import { connect } from "react-redux";
 import { editBot } from "app/redux/actions/BotSettingsActions";
 import { withTranslation } from "react-i18next";
@@ -17,6 +17,9 @@ class SettingsFormBody extends Component {
     name: "",
     language: "",
     channel: 0,
+    commander: false,
+    volume: 0,
+    song: ''
   };
 
   componentDidMount() {
@@ -26,6 +29,9 @@ class SettingsFormBody extends Component {
       name: this.props.bot.name,
       language: this.props.bot.language,
       channel: this.props.bot.channel,
+      commander: this.props.bot.commander,
+      volume: this.props.bot.volume,
+      song: this.props.bot.song,
     });
   }
 
@@ -44,19 +50,19 @@ class SettingsFormBody extends Component {
     clearTimeout(this.typingTimer);
     this.typingTimer = setTimeout(() => {
       if (event.target.value) {
-        this.send(event.target.name);
+        this.send(event.target.name, event.target.type);
       }
     }, 1000);
   };
 
-  send(event) {
+  send(event, type) {
     if (this.state[event] !== this.props.bot[event]) {
-      this.props.onEditBot(this.props.bot.id, { [event]: this.state[event] });
+      this.props.onEditBot(this.props.bot.id, { [event]: type === "number" ? +this.state[event] : this.state[event] });
     }
   }
 
   render() {
-    let { address, name, language, channel } = this.state;
+    let { address, name, language, channel, volume, commander, song } = this.state;
     const { t } = this.props;
     return (
       <div>
@@ -107,6 +113,34 @@ class SettingsFormBody extends Component {
             <MenuItem value="es-ar">Spanish (Argentina)</MenuItem>
             <MenuItem value="th">ไทย</MenuItem>
           </SelectValidator>
+          <TextValidator
+            className="mb-4 w-full"
+            label={t("bot-settings.volume")}
+            onChange={this.handleChange}
+            type="number"
+            name="volume"
+            value={volume}
+          />
+          <TextValidator
+            className="mb-4 w-full"
+            label={t("bot-settings.song")}
+            onChange={this.handleChange}
+            type="text"
+            name="song"
+            value={song}
+          />
+          <FormControlLabel
+            control={
+              <Switch
+                checked={commander}
+                onChange={this.handleChange}
+                value={commander}
+                name="commander"
+                color="primary"
+              />
+            }
+            label={t("bot-settings.commander")}
+          />
         </ValidatorForm>
       </div>
     );
